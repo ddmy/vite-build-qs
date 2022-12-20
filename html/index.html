@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试打包后的组件是否可用1</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://cdn.bootcdn.net/ajax/libs/vue/3.2.45/vue.esm-browser.prod.js?543553"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h1>测试组件：</h1>
+        <HelloWorld msg="Vite + Vue" msg2="hhhhhh" msg3="5555"/>
+    </div>
+</body>
+<script type="module">
+    import { createApp } from "https://cdn.bootcdn.net/ajax/libs/vue/3.2.45/vue.esm-browser.prod.js?543553"
+    import HelloWorld from './HelloWorld.es.js'
+    console.log('HelloWorld', HelloWorld)
+    const app = createApp({
+        components: {
+            HelloWorld
+        },
+        setup () {
+            return {}
+        }
+    }).mount('#app')
+</script>
+</html>
